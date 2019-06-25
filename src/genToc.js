@@ -1,7 +1,6 @@
 "use strict";
 
 const unified = require("unified");
-const u = require("unist-builder");
 const markdown = require("remark-parse");
 const stringify = require("remark-stringify");
 
