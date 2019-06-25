@@ -11,4 +11,22 @@ describe("genToc", () => {
     // Then
     expect(typeof res).toBe("string");
   });
+
+  it("throws a error when source is not string", () => {
+    // Given
+    const source01 = 3;
+    const source02 = undefined;
+
+    // Then
+    expect(() => {
+      // When
+      genToc(source01);
+    }).toThrow();
+
+    // Then
+    expect(() => {
+      // When
+      genToc(source02);
+    }).toThrow();
+  });
 });
