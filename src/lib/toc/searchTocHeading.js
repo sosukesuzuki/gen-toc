@@ -1,8 +1,8 @@
 const { parse } = require("../remark");
 
-const tocTexts = ["Table of Contents"];
-
 function isTocNode(node) {
+  const tocTexts = ["Table of Contents"];
+
   switch (node.type) {
     case "heading":
       return tocTexts.includes(node.children[0].value);
