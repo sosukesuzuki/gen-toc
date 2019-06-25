@@ -3,7 +3,7 @@
 const pkg = require("../../package.json");
 const fs = require("fs");
 const program = require("commander");
-const genToc = require("../getToc");
+const genToc = require("../genToc");
 
 function writeFile(path, data) {
   return new Promise((resolve, reject) => {

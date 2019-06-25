@@ -1,4 +1,4 @@
-const genToc = require("../src/getToc");
+const genToc = require("../src/genToc");
 
 describe("genToc", () => {
   it("returns a string", () => {
