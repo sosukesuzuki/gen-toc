@@ -1,11 +1,9 @@
-"use strict";
+import { version } from "../../package.json";
+import fs from "fs";
+import program from "commander";
+import genToc from "../genToc";
 
-const pkg = require("../../package.json");
-const fs = require("fs");
-const program = require("commander");
-const genToc = require("../genToc");
-
-function writeFile(path, data) {
+function writeFile(path: string, data: any): Promise<void> {
   return new Promise((resolve, reject) => {
     fs.writeFile(path, data, "utf8", error => {
       if (error) reject(error);
@@ -14,18 +12,18 @@ function writeFile(path, data) {
   });
 }
 
-function readFile(path) {
-  return new Promise((resolve, reject) => {
+function readFile(path: string): Promise<string> {
+  return new Promise((resove, reject) => {
     fs.readFile(path, "utf8", (error, data) => {
       if (error) reject(error);
-      resolve(data);
+      resove(data);
     });
   });
 }
 
-async function run() {
+async function run(): Promise<void> {
   program
-    .version(pkg.version)
+    .version(version)
     .arguments("<filename>")
     .option("-w --write")
     .parse(process.argv);
@@ -33,6 +31,7 @@ async function run() {
   if (program.args.length === 0) return;
 
   const filenames = program.args;
+
   const datas = await Promise.all(
     filenames.map(filename => readFile(filename))
   );
@@ -53,9 +52,7 @@ async function run() {
     })
   );
 
-  if (hasWriteOption) {
-    console.log("Done");
-  }
+  if (hasWriteOption) console.log("Done");
 }
 
-module.exports = run;
+run();
