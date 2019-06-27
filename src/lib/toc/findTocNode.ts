@@ -6,12 +6,14 @@ function isTocNode(node: Node): boolean {
 
   switch (node.type) {
     case "heading": {
-      if (Array.isArray(node.children)) {
-        return tocTexts.includes(node.children[0].value);
+      if (
+        Array.isArray(node.children) &&
+        tocTexts.includes(node.children[0].value)
+      ) {
+        return true;
       }
     }
   }
-
   return false;
 }
 
