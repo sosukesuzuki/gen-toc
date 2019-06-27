@@ -40,8 +40,6 @@ async function run(): Promise<void> {
   const hasWriteOption = program.write;
   const hasNoFormatOption = program.noformat;
 
-  console.log({ hasNoFormatOption })
-
   await Promise.all(
     datas.map(async (data, i) => {
       const attached = genToc(data, { noFormat: hasNoFormatOption });
