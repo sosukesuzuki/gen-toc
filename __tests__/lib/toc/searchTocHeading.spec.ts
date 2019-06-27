@@ -1,4 +1,4 @@
-const searchTocHeading = require("../../../src/lib/toc/searchTocHeading");
+import findTocNode from "../../../src/lib/toc/findTocNode";
 
 describe("searchTocHeading", () => {
   it("returns heading node", () => {
@@ -6,7 +6,7 @@ describe("searchTocHeading", () => {
     const source = "# Foo\n## Table of Contents";
 
     // When
-    const res = searchTocHeading(source);
+    const res = findTocNode(source);
 
     // Then
     expect(res).toMatchObject({
@@ -20,7 +20,7 @@ describe("searchTocHeading", () => {
     const source = "# Foo";
 
     // When
-    const res = searchTocHeading(source);
+    const res = findTocNode(source);
 
     // Then
     expect(res).toBeNull();

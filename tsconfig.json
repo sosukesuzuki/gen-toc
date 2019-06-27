@@ -1,7 +1,7 @@
 {
-  "include": ["./src/**/*.ts"],
+  "include": ["src"],
   "compilerOptions": {
-    "target": "esnext",
+    "target": "es5",
     "module": "commonjs",
     "resolveJsonModule": true,
     "strict": true,

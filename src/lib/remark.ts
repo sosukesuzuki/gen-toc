@@ -9,7 +9,7 @@ export function parse(source: string): Node {
   return ast;
 }
 
-export function stingifyFromAst(ast: Node): string {
+export function stringifyFromAst(ast: Node): string {
   const processor = unified().use(stringify);
   const text = processor.stringify(ast);
   return text;

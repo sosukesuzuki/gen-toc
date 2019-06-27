@@ -1,4 +1,4 @@
-const { parse, stringifyFromAst } = require("../../src/lib/remark");
+import { parse, stringifyFromAst } from "../../src/lib/remark";
 
 describe("remark", () => {
   describe("parse", () => {
