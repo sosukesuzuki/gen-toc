@@ -1,4 +1,5 @@
 import { Node } from "unist";
+import findTocMarkerNode from "./findTocMarkerNode";
 
 type Depth = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -36,12 +37,29 @@ export function findHeadingNodes(children: Node[]): HeadingNode[] {
   return headingNodes as HeadingNode[];
 }
 
+export function findHeadingNodesUnderMarker(headingNodes: HeadingNode[], markerNode: Node) {
+  const headingNodesUnderMarkar = headingNodes.filter(headingNode => {
+    const markerNodePos = markerNode.position;
+    if (markerNodePos === undefined) throw new Error("position of marker node must not be undefined");
+    return headingNode.line > markerNodePos.start.line;
+  });
+
+  return headingNodesUnderMarkar;
+}
+
 export default function findTocHeadingNodes(ast: Node): HeadingNode[] {
   const { children } = ast;
 
   if (!Array.isArray(children)) return [];
 
   const headingNodes = findHeadingNodes(children);
+  const markerNode = findTocMarkerNode(ast);
 
-  return headingNodes;
+  if (markerNode === null) {
+    throw new Error("Please write a heading or comment as a marker");
+  }
+
+  const headingNodesUnderMarkar = findHeadingNodesUnderMarker(headingNodes, markerNode);
+
+  return headingNodesUnderMarkar;
 }
