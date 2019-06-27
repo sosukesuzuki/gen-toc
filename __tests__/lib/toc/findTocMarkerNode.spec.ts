@@ -30,7 +30,7 @@ describe("searchTocHeading", () => {
       type: "html",
       value: "<!-- Table of Contents -->"
     });
-  })
+  });
 
   it("returns null when toc heading does not exist", () => {
     // Given

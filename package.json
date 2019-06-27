@@ -6,7 +6,7 @@
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "format": "prettier --write \"{,src/**/}*.{ts,js,md,json}\"",
+    "format": "prettier --write \"{,src/**/,__tests__/**/}*.{ts,js,md,json}\"",
     "lint": "eslint ./ --ext ts",
     "lint:fix": "yarn lint --fix",
     "test": "jest",
