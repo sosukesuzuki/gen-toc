@@ -15,6 +15,20 @@ describe("searchTocHeading", () => {
     });
   });
 
+  it("returns special comment node", () => {
+    // Given
+    const source = "# Foo\n\n<!-- Table of Contents -->\n";
+
+    // When
+    const res = findTocNode(source);
+
+    // Then
+    expect(res).toMatchObject({
+      type: "html",
+      value: "<!-- Table of Contents -->"
+    });
+  })
+
   it("returns null when toc heading does not exist", () => {
     // Given
     const source = "# Foo";
