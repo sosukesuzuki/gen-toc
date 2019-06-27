@@ -64,4 +64,32 @@ describe("convertToHeadingTree", () => {
       }
     ]);
   });
+
+  it("returns single order tree", () => {
+    // Given
+    const source = `# onek
+## Table of Contents
+## Content1
+## Content2
+`;
+    const ast = parse(source);
+    const headingNodes = findTocHeadingNodes(ast);
+
+    // When
+    const res = convertToHeadingTree(headingNodes);
+
+    // Then
+    expect(res).toMatchObject([
+      {
+        value: "Content1",
+        depth: 2,
+        line: 3 
+      },
+      {
+        value: "Content2",
+        depth: 2,
+        line: 4
+      }
+    ]);
+  })
 });
