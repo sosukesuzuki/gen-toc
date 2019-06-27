@@ -21,7 +21,7 @@ function buildListFromHeadingTree(nodes: HeadingTree[]): Node {
   return listNode;
 }
 
-export default function convertToHeadingAst(headingTree: HeadingTree[]): Node {
+export default function convertToTocAst(headingTree: HeadingTree[]): Node {
   const ast = buildListFromHeadingTree(headingTree);
   return ast;
 }

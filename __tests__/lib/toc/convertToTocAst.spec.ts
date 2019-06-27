@@ -1,4 +1,4 @@
-import convertToHeadingAst from "../../../src/lib/toc/convertToHeadingAst";
+import convertToTocAst from "../../../src/lib/toc/convertToTocAst";
 import convertToHeadingTree from "../../../src/lib/toc/convertToHeadingTree";
 import findTocHeadingNodes from "../../../src/lib/toc/findTocHeadingNodes";
 import { parse } from "../../../src/lib/remark";
@@ -16,7 +16,7 @@ describe("convertToHeadingAst", () => {
     const headingTree = convertToHeadingTree(headingNodes);
 
     // When
-    const listAst = convertToHeadingAst(headingTree);
+    const listAst = convertToTocAst(headingTree);
 
     // Then
     expect(listAst).toMatchObject({
