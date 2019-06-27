@@ -1,5 +1,5 @@
 {
-  "name": "toc-gen",
+  "name": "gen-toc",
   "version": "1.0.0",
   "main": "index.js",
   "bin": "./build/src/cli",
