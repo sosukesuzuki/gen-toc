@@ -1,11 +1,19 @@
 import { parse, stringifyFromAst } from "./lib/remark";
+import prettier from "prettier";
 import findTocMarkerNode from "./lib/toc/findTocMarkerNode";
 import findTocHeadingNodes from "./lib/toc/findTocHeadingNodes";
 import convertToHeadingTree from "./lib/toc/convertToHeadingTree";
 import convertToTocAst from "./lib/toc/convertToTocAst";
 import insertTocAstToBaseAst from "./lib/toc/insertTocAstToBaseAst";
 
-export default function genToc(source: string): string {
+type Options = {
+  noFormat: boolean;
+};
+
+export default function genToc(
+  source: string,
+  options: Options = { noFormat: false }
+): string {
   const ast = parse(source);
   const markerNode = findTocMarkerNode(ast);
 
@@ -18,5 +26,9 @@ export default function genToc(source: string): string {
   const convertedAst = insertTocAstToBaseAst(ast, tocAst, markerNode);
 
   const text = stringifyFromAst(convertedAst);
-  return text;
+  if (options.noFormat) return text;
+
+  const formatted = prettier.format(text, { parser: "markdown" });
+
+  return formatted;
 }

@@ -26,6 +26,7 @@ async function run(): Promise<void> {
     .version(version)
     .arguments("<filename>")
     .option("-w --write")
+    .option("--noformat")
     .parse(process.argv);
 
   if (program.args.length === 0) return;
@@ -37,10 +38,13 @@ async function run(): Promise<void> {
   );
 
   const hasWriteOption = program.write;
+  const hasNoFormatOption = program.noformat;
+
+  console.log({ hasNoFormatOption })
 
   await Promise.all(
     datas.map(async (data, i) => {
-      const attached = genToc(data);
+      const attached = genToc(data, { noFormat: hasNoFormatOption });
 
       if (hasWriteOption) {
         const filename = filenames[i];
