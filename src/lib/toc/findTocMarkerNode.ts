@@ -1,4 +1,3 @@
-import { parse } from "../remark";
 import { Node } from "unist";
 
 function getMarkdownCommentValue(text: string): string | null {
@@ -54,8 +53,7 @@ function findTocNodeFromAst(ast: Node): Node | null {
   }
 }
 
-export default function findTocMarkerNode(source: string): Node | null {
-  const ast = parse(source);
+export default function findTocMarkerNode(ast: Node): Node | null {
   const res = findTocNodeFromAst(ast);
   return res;
 }

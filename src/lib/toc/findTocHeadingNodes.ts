@@ -1,4 +1,3 @@
-import { parse } from "../remark";
 import { Node } from "unist";
 
 type Depth = 1 | 2 | 3 | 4 | 5 | 6;
@@ -37,9 +36,7 @@ function findHeadingNodes(children: Node[]): HeadingNode[] {
   return headingNodes as HeadingNode[];
 }
 
-export default function findTocHeadingNodes(source: string): HeadingNode[] {
-  const ast = parse(source);
-
+export default function findTocHeadingNodes(ast: Node): HeadingNode[] {
   const { children } = ast;
 
   if (!Array.isArray(children)) return [];
