@@ -11,10 +11,9 @@ function buildListFromHeadingTree(nodes: HeadingTree[]): Node {
             u("text", { value: node.value })
           ])
         ]),
-        node.children &&
-          node.children.length !== 0 ?
-          buildListFromHeadingTree(node.children) :
-          undefined
+        node.children && node.children.length !== 0
+          ? buildListFromHeadingTree(node.children)
+          : undefined
       ])
     )
   ]);
