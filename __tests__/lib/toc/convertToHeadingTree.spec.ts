@@ -1,6 +1,8 @@
 import convertToHeadingTree from "../../../src/lib/toc/convertToHeadingTree";
 import findTocHeadingNodes from "../../../src/lib/toc/findTocHeadingNodes";
 import { parse } from "../../../src/lib/remark";
+import findTocMarkerNode from "../../../src/lib/toc/findTocMarkerNode";
+import { Node } from "unist";
 
 describe("convertToHeadingTree", () => {
   it("returns tree", () => {
@@ -16,7 +18,8 @@ describe("convertToHeadingTree", () => {
 ### SubContent3
 `;
     const ast = parse(source);
-    const headingNodes = findTocHeadingNodes(ast);
+    const markerNode = findTocMarkerNode(ast);
+    const headingNodes = findTocHeadingNodes(ast, markerNode as Node);
 
     // When
     const res = convertToHeadingTree(headingNodes);
@@ -73,7 +76,8 @@ describe("convertToHeadingTree", () => {
 ## Content2
 `;
     const ast = parse(source);
-    const headingNodes = findTocHeadingNodes(ast);
+    const markerNode = findTocMarkerNode(ast);
+    const headingNodes = findTocHeadingNodes(ast, markerNode as Node);
 
     // When
     const res = convertToHeadingTree(headingNodes);

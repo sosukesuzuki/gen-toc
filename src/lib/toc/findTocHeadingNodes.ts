@@ -1,5 +1,4 @@
 import { Node } from "unist";
-import findTocMarkerNode from "./findTocMarkerNode";
 
 type Depth = 1 | 2 | 3 | 4 | 5 | 6;
 
@@ -51,13 +50,12 @@ export function findHeadingNodesUnderMarker(
   return headingNodesUnderMarkar;
 }
 
-export default function findTocHeadingNodes(ast: Node): HeadingNode[] {
+export default function findTocHeadingNodes(ast: Node, markerNode: Node): HeadingNode[] {
   const { children } = ast;
 
   if (!Array.isArray(children)) return [];
 
   const headingNodes = findHeadingNodes(children);
-  const markerNode = findTocMarkerNode(ast);
 
   if (markerNode === null) {
     throw new Error("Please write a heading or comment as a marker");

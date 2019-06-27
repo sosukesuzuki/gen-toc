@@ -2,6 +2,8 @@ import convertToTocAst from "../../../src/lib/toc/convertToTocAst";
 import convertToHeadingTree from "../../../src/lib/toc/convertToHeadingTree";
 import findTocHeadingNodes from "../../../src/lib/toc/findTocHeadingNodes";
 import { parse } from "../../../src/lib/remark";
+import findTocMarkerNode from "../../../src/lib/toc/findTocMarkerNode";
+import { Node } from "unist";
 
 describe("convertToHeadingAst", () => {
   it("returns single order list ast", () => {
@@ -12,7 +14,8 @@ describe("convertToHeadingAst", () => {
 ## Content2
 `;
     const ast = parse(source);
-    const headingNodes = findTocHeadingNodes(ast);
+    const markerNode = findTocMarkerNode(ast);
+    const headingNodes = findTocHeadingNodes(ast, markerNode as Node);
     const headingTree = convertToHeadingTree(headingNodes);
 
     // When
