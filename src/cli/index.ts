@@ -25,8 +25,8 @@ async function run(): Promise<void> {
   program
     .version(version)
     .arguments("<filename>")
-    .option("-w --write")
-    .option("--noformat")
+    .option("-w --write", "write to file")
+    .option("-nf --noformat", "don't format with prettier")
     .parse(process.argv);
 
   if (program.args.length === 0) return;
