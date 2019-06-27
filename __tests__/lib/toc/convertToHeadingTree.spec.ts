@@ -83,7 +83,7 @@ describe("convertToHeadingTree", () => {
       {
         value: "Content1",
         depth: 2,
-        line: 3 
+        line: 3
       },
       {
         value: "Content2",
@@ -91,5 +91,5 @@ describe("convertToHeadingTree", () => {
         line: 4
       }
     ]);
-  })
+  });
 });
