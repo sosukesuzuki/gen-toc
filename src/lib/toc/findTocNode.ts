@@ -18,7 +18,13 @@ function isTocNode(node: Node): boolean {
 }
 
 function findTocNodeFromAst(ast: Node): Node | null {
-  return (ast.children as Node[]).find((node: Node) => isTocNode(node)) || null;
+  const res =  (ast.children as Node[]).find((node: Node) => isTocNode(node));
+
+  if (res === undefined) {
+    return null;
+  } else {
+    return res;
+  }
 }
 
 export default function findTocNode(source: string): Node | null {
