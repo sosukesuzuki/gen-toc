@@ -54,7 +54,7 @@ function findTocNodeFromAst(ast: Node): Node | null {
   }
 }
 
-export default function findTocNode(source: string): Node | null {
+export default function findTocMarkerNode(source: string): Node | null {
   const ast = parse(source);
   const res = findTocNodeFromAst(ast);
   return res;

@@ -1,4 +1,4 @@
-import findTocNode from "../../../src/lib/toc/findTocNode";
+import findTocMarkerNode from "../../../src/lib/toc/findTocMarkerNode";
 
 describe("searchTocHeading", () => {
   it("returns heading node", () => {
@@ -6,7 +6,7 @@ describe("searchTocHeading", () => {
     const source = "# Foo\n## Table of Contents";
 
     // When
-    const res = findTocNode(source);
+    const res = findTocMarkerNode(source);
 
     // Then
     expect(res).toMatchObject({
@@ -20,7 +20,7 @@ describe("searchTocHeading", () => {
     const source = "# Foo\n\n<!-- Table of Contents -->\n";
 
     // When
-    const res = findTocNode(source);
+    const res = findTocMarkerNode(source);
 
     // Then
     expect(res).toMatchObject({
@@ -34,7 +34,7 @@ describe("searchTocHeading", () => {
     const source = "# Foo";
 
     // When
-    const res = findTocNode(source);
+    const res = findTocMarkerNode(source);
 
     // Then
     expect(res).toBeNull();
