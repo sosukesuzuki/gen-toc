@@ -25,15 +25,20 @@ describe("insertTocAstToBaseAst", () => {
     // Then
     expect(res).toMatchObject({
       type: "root",
-      children: [{
-        type: "heading"
-      }, {
-        type: "heading"
-      }, {
-        type: "list"
-      }, {
-        type: "heading"
-      }]
-    })
+      children: [
+        {
+          type: "heading"
+        },
+        {
+          type: "heading"
+        },
+        {
+          type: "list"
+        },
+        {
+          type: "heading"
+        }
+      ]
+    });
   });
 });

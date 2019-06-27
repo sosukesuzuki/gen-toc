@@ -50,7 +50,10 @@ export function findHeadingNodesUnderMarker(
   return headingNodesUnderMarkar;
 }
 
-export default function findTocHeadingNodes(ast: Node, markerNode: Node): HeadingNode[] {
+export default function findTocHeadingNodes(
+  ast: Node,
+  markerNode: Node
+): HeadingNode[] {
   const { children } = ast;
 
   if (!Array.isArray(children)) return [];

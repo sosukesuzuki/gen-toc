@@ -4,18 +4,24 @@ import u from "unist-builder";
 
 function buildListFromHeadingTree(nodes: HeadingTree[]): Node {
   const listNode = u("list", [
-    ...nodes.map(node =>
-      u("listitem", [
-        u("paragraph", [
-          u("link", { url: `#${node.value}` }, [
-            u("text", { value: node.value })
+    ...nodes.map(node => {
+      return node.children && node.children.length !== 0
+        ? u("listitem", [
+            u("paragraph", [
+              u("link", { url: `#${node.value}` }, [
+                u("text", { value: node.value })
+              ])
+            ]),
+            buildListFromHeadingTree(node.children)
           ])
-        ]),
-        node.children && node.children.length !== 0
-          ? buildListFromHeadingTree(node.children)
-          : undefined
-      ])
-    )
+        : u("listitem", [
+            u("paragraph", [
+              u("link", { url: `#${node.value}` }, [
+                u("text", { value: node.value })
+              ])
+            ])
+          ]);
+    })
   ]);
 
   return listNode;

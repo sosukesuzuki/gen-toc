@@ -42,8 +42,7 @@ describe("convertToHeadingAst", () => {
                   ]
                 }
               ]
-            },
-            undefined
+            }
           ]
         },
         {
@@ -63,8 +62,7 @@ describe("convertToHeadingAst", () => {
                   ]
                 }
               ]
-            },
-            undefined
+            }
           ]
         }
       ]

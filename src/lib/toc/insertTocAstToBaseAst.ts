@@ -1,10 +1,14 @@
 import { Node } from "unist";
 import shallowequal from "shallowequal";
 
-export default function insertTocAstToBaseAst(baseAst: Node, tocAst: Node, markerAst: Node): Node {
+export default function insertTocAstToBaseAst(
+  baseAst: Node,
+  tocAst: Node,
+  markerAst: Node
+): Node {
   const children = baseAst.children;
 
-  if (!Array.isArray(children)) throw new Error("children must be array")
+  if (!Array.isArray(children)) throw new Error("children must be array");
 
   let markerNodeIndex: number = -1;
   (children as Node[]).forEach((child, i) => {
@@ -18,5 +22,5 @@ export default function insertTocAstToBaseAst(baseAst: Node, tocAst: Node, marke
   return {
     ...baseAst,
     children
-  }
+  };
 }
