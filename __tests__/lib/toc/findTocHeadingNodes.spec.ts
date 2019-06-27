@@ -1,14 +1,16 @@
-import findTocHeadingNodes from "../../../src/lib/toc/findTocHeadingNodes";
+import { findHeadingNodes } from "../../../src/lib/toc/findTocHeadingNodes";
 import { parse } from "../../../src/lib/remark";
+import { Node } from "unist";
 
-describe("findTocHeadingNodes", () => {
+describe("findHeadingNodes", () => {
   it("returns nodes of headings", () => {
     // Given
     const source = "# one\n## two-1\n## two-2\n### three";
     const ast = parse(source);
+    const { children } = ast;
 
     // When
-    const res = findTocHeadingNodes(ast);
+    const res = findHeadingNodes(children as Node[]);
 
     // Then
     expect(res).toMatchObject([{

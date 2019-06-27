@@ -8,7 +8,7 @@ type HeadingNode = {
   line: number;
 };
 
-function findHeadingNodes(children: Node[]): HeadingNode[] {
+export function findHeadingNodes(children: Node[]): HeadingNode[] {
   const headings = children.filter(child => child.type === "heading");
   const headingNodes = headings.map(heading => {
     const { children, depth, position } = heading;
