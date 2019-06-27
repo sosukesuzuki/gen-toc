@@ -15,12 +15,12 @@ function isTocNode(node: Node): boolean {
   return false;
 }
 
-function findTocNodeFromAst(ast: Node) {
-  return (ast.children as Node[]).find((node: Node) => isTocNode(node));
+function findTocNodeFromAst(ast: Node): Node | null {
+  return (ast.children as Node[]).find((node: Node) => isTocNode(node)) || null;
 }
 
 export default function findTocNode(source: string): Node | null {
   const ast = parse(source);
   const res = findTocNodeFromAst(ast);
-  return res || null;
+  return res;
 }
