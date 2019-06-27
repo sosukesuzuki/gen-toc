@@ -45,7 +45,7 @@ function isTocNode(node: Node): boolean {
 }
 
 function findTocNodeFromAst(ast: Node): Node | null {
-  const res =  (ast.children as Node[]).find((node: Node) => isTocNode(node));
+  const res = (ast.children as Node[]).find((node: Node) => isTocNode(node));
 
   if (res === undefined) {
     return null;
