@@ -3,3 +3,68 @@
 **Work in Progress**
 
 A "Table of Contents" generator on Markdown.
+
+## Usage
+
+Prepare a markdown file named `test.md` like below:
+
+```md
+# Heading1
+
+## Table of Contents
+
+## Heading2-1
+
+## Heading2-2
+```
+
+You can use `gen-toc` to generate "Table of Contents" into `test.md`.
+
+```sh
+$ gen-toc ./test.md
+# Heading1
+
+## Table of Contents
+
+- [Heading2-1](#Heading2-1)
+- [Heading2-2](#Heading2-2)
+
+## Heading2-1
+
+## Heading2-2
+```
+
+If you use `gen-toc` with `--write` option, `gen-toc` writes to a file.
+
+```sh
+$ gen-toc --write ./test.md
+test.md
+Done
+```
+
+`gen-toc` format a markdown with [Prettier](https://github.com/prettier/prettier) on default. If you don't want `gen-toc` to format, you can add `--noformat` option.
+
+If you don't want to use a heading of `## Table of Contents`, you can use a comment `<-- Table of Contents --> ` instead of a heading.
+
+```sh
+$ cat test.md
+# Heading1
+
+<!-- Table of Contents -->
+
+## Heading2-1
+
+## Heading2-2
+
+$ gen-toc test.md
+# Heading1
+
+<!-- Table of Contents -->
+
+- [Heading2-1](#Heading2-1)
+- [Heading2-2](#Heading2-2)
+
+## Heading2-1
+
+## Heading2-2
+```
