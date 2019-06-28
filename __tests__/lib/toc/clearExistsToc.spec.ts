@@ -17,8 +17,6 @@ describe("clearExistsToc", () => {
     // When
     const res = clearExistsToc(ast, markerNode);
 
-    console.log(res)
-
     // Then
     expect(res).toMatchObject({
       type: "root",
