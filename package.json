@@ -11,7 +11,7 @@
   },
   "scripts": {
     "format": "prettier --write \"{,src/**/,__tests__/**/}*.{ts,js,md,json}\"",
-    "lint": "eslint ./ --ext ts",
+    "lint": "eslint ./src --ext ts",
     "lint:fix": "yarn lint --fix",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -24,7 +24,7 @@
     "@types/prettier": "^1.16.4",
     "@types/shallowequal": "^1.1.1",
     "@typescript-eslint/parser": "^1.11.0",
-    "eslint": "^6.0.1",
+    "eslint": "^5.0.0",
     "eslint-plugin-prettier": "^3.1.0",
     "jest": "^24.8.0",
     "rimraf": "^2.6.3",

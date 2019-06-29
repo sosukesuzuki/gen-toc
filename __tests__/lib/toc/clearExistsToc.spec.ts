@@ -20,13 +20,16 @@ describe("clearExistsToc", () => {
     // Then
     expect(res).toMatchObject({
       type: "root",
-      children: [{
-        type: "heading",
-        depth: 1
-      }, {
-        type: "heading",
-        depth: 2
-      }]
+      children: [
+        {
+          type: "heading",
+          depth: 1
+        },
+        {
+          type: "heading",
+          depth: 2
+        }
+      ]
     });
   });
 });
