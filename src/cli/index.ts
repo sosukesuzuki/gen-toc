@@ -21,7 +21,7 @@ function readFile(path: string): Promise<string> {
   });
 }
 
-async function run(): Promise<void> {
+export async function run(): Promise<void> {
   program
     .version(version)
     .arguments("<filename>")
@@ -56,5 +56,3 @@ async function run(): Promise<void> {
 
   if (hasWriteOption) console.log("Done");
 }
-
-run();

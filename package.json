@@ -2,7 +2,7 @@
   "name": "gen-toc",
   "version": "1.0.3",
   "main": "index.js",
-  "bin": "./build/src/cli",
+  "bin": "bin/gen-toc.js",
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
   "license": "MIT",
   "repository": {
@@ -10,6 +10,7 @@
     "url": "https://github.com/sosukesuzuki/gen-toc.git"
   },
   "files": [
+    "bin/**/*",
     "build/**/*"
   ],
   "scripts": {
@@ -19,7 +20,7 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "clean": "rimraf ./build",
-    "build": "yarn clean && tsc",
+    "build": "yarn clean && tsc -p tsconfig.build.json",
     "build:watch": "yarn build -w"
   },
   "devDependencies": {
