@@ -67,3 +67,7 @@ $ gen-toc test.md
 
 ## Heading2-2
 ```
+
+## LICENSE
+
+MIT
