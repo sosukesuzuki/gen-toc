@@ -1,5 +1,4 @@
 {
-  "include": ["src"],
   "compilerOptions": {
     "target": "es5",
     "module": "commonjs",
@@ -17,6 +16,10 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "typeRoots": [
+      "node_modules/@types",
+      "typings"
+    ]
   }
 }
