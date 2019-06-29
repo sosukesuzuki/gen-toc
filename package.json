@@ -1,6 +1,6 @@
 {
   "name": "gen-toc",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "bin": "./build/src/cli",
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
@@ -40,5 +40,8 @@
     "unist-builder": "^1.0.4",
     "prettier": "^1.18.2"
   },
-  "keywords": ["markdown", "nodejs"]
+  "keywords": [
+    "markdown",
+    "nodejs"
+  ]
 }
