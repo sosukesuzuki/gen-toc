@@ -5,6 +5,10 @@
   "bin": "./build/src/cli",
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sosukesuzuki/gen-toc.git"
+  },
   "scripts": {
     "format": "prettier --write \"{,src/**/,__tests__/**/}*.{ts,js,md,json}\"",
     "lint": "eslint ./ --ext ts",
@@ -35,5 +39,6 @@
     "unified": "^7.1.0",
     "unist-builder": "^1.0.4",
     "prettier": "^1.18.2"
-  }
+  },
+  "keywords": ["markdown", "nodejs"]
 }
