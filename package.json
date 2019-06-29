@@ -1,6 +1,6 @@
 {
   "name": "gen-toc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "main": "index.js",
   "bin": "bin/gen-toc.js",
   "author": "Sosuke Suzuki <aosukeke@gmail.com>",
