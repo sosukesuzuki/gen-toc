@@ -4,6 +4,12 @@
 
 A Markdown "Table of Contents" generator on CLI.
 
+## Installation
+
+```sh
+$ npm install gen-toc
+```
+
 ## Usage
 
 Prepare a markdown file named `test.md` like below:
