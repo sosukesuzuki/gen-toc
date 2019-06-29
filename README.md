@@ -1,5 +1,6 @@
 # gen-toc
 
+[![npm version](https://badge.fury.io/js/gen-toc.svg)](https://badge.fury.io/js/gen-toc)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 A Markdown "Table of Contents" generator on CLI.
