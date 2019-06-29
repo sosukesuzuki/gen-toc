@@ -2,7 +2,7 @@
   "extends": "./tsconfig.json",
   "include": ["src/index.ts", "src/cli/index.ts"],
   "compilerOptions": {
-    "rootDir": "./",
+    "rootDir": "src",
     "outDir": "build"
   }
 }
