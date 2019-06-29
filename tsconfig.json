@@ -4,7 +4,6 @@
     "module": "commonjs",
     "resolveJsonModule": true,
     "strict": true,
-    "declaration": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
     "strictFunctionTypes": true,
