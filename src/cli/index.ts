@@ -1,6 +1,7 @@
 import { version } from "../../package.json";
 import fs from "fs";
 import program from "commander";
+import chalk from "chalk";
 import genToc from "../genToc";
 
 function writeFile(path: string, data: any): Promise<void> {
@@ -47,7 +48,11 @@ export async function run(): Promise<void> {
       if (hasWriteOption) {
         const filename = filenames[i];
         await writeFile(filename, attached);
-        console.log(filename);
+        if (data === attached) {
+          console.log(chalk.gray(filename));
+        } else {
+          console.log(filename);
+        }
       } else {
         console.log(attached);
       }
