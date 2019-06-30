@@ -10,8 +10,10 @@
     "url": "https://github.com/sosukesuzuki/gen-toc.git"
   },
   "files": [
-    "/bin",
-    "/build"
+    "build/src/**/*",
+    "bin/**/*",
+    "!src/**/*",
+    "!typings/**/*"
   ],
   "scripts": {
     "format": "prettier --write \"{,src/**/,__tests__/**/}*.{ts,js,md,json}\"",
